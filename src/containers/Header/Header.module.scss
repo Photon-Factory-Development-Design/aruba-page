@@ -1,7 +1,0 @@
-@import "assets/styles/mixins/breakpoints";
-
-.headerTitle {
-    @include breakpoint("md-max") {
-        font-size: 40px !important;
-    }
-}
