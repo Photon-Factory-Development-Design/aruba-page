@@ -1,0 +1,7 @@
+.category_button {
+  background-color: #EF7F22;
+
+  &:hover {
+    background-color: #EF5E1E;
+  }
+}
