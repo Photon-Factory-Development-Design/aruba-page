@@ -24,3 +24,7 @@ code {
   width: 400px;
   max-width: 100%;
 }
+
+.container {
+  max-width: 1500px;
+}

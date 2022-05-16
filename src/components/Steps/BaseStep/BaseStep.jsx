@@ -18,7 +18,7 @@ const BaseStep = ({ title, subtitle, children, onGoBack }) => {
                 <h2 className={'text-3xl font-bold'}>{title}</h2>
                 <p className={'py-4'}>{subtitle}</p>
             </div>
-            <div className={'flex flex-row'}>{children}</div>
+            <div className={'flex flex-row pb-16'}>{children}</div>
         </div>
     );
 };
