@@ -35,19 +35,17 @@ const WifiUsage = ({ onUpdateQuestion, onGoBack }) => {
                 <UsageButton
                     icon={'icon-usage-medium.png'}
                     onClick={() => onUpdateQuestion(NETWORK_USAGE.MODERATE)}>
-                    <span className={'font-bold'}>Light Usage</span>
+                    <span className={'font-bold'}>Moderate usage</span>
                     <span className={'font-light'}>
-                        Internet browsing and file-sharing apps like Google Docs
-                        & SharePoint
+                        File-sharing apps, voice, video & music streaming
                     </span>
                 </UsageButton>
                 <UsageButton
                     icon={'icon-usage-high.png'}
                     onClick={() => onUpdateQuestion(NETWORK_USAGE.HIGH)}>
-                    <span className={'font-bold'}>Light Usage</span>
+                    <span className={'font-bold'}>High usage</span>
                     <span className={'font-light'}>
-                        Internet browsing and file-sharing apps like Google Docs
-                        & SharePoint
+                        Video conferences, critical apps & content creation
                     </span>
                 </UsageButton>
             </div>
