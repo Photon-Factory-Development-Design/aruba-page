@@ -476,6 +476,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .m-2 {
   margin: 0.5rem;
 }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .block {
   display: block;
 }
@@ -711,4 +715,4 @@ code {
   height: 60px;
 }
 
-/*# sourceMappingURL=main.d2e068f7.css.map*/
+/*# sourceMappingURL=main.b7a08c3d.css.map*/

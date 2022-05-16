@@ -16,7 +16,7 @@ function App() {
     console.log('QuizComponent', QuizComponent, quizProps);
 
     return (
-        <div className="relative container flex flex-col">
+        <div className="relative container flex flex-col mx-auto">
             <div></div>
             <div className={'z-1 relative'}>
                 <QuizComponent {...quizProps} />
