@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.3",
-    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -20,7 +18,7 @@
     "react-material-ui-carousel": "^2.2.1",
     "react-multi-carousel": "^2.6.2",
     "react-player": "^2.9.0",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.1",
     "styled-components": "^5.2.1",
     "url-polyfill": "^1.1.12",
     "web-vitals": "^1.0.1"
@@ -33,12 +31,6 @@
     "build-rename": "npm run build-rename-js && npm run build-rename-css",
     "build-rename-js": "renamer --find \"/main\\.[^\\.]+\\.chunk.js/\" --replace 'main.js' build/static/js/*.js",
     "build-rename-css": "renamer  --find \"/main\\.[^\\.]+\\.css/\" --replace main.css build/static/css/*.css"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
@@ -53,7 +45,11 @@
     ]
   },
   "devDependencies": {
-    "react-app-rewired": "^2.1.8",
-    "renamer": "^2.0.1"
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.13",
+    "prettier": "^2.6.2",
+    "react-app-rewired": "^2.2.1",
+    "renamer": "^2.0.1",
+    "tailwindcss": "^3.0.24"
   }
 }

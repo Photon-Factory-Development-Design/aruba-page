@@ -1,9 +1,9 @@
 import BaseStepService from "./BaseStep.service";
-import NumberWirelessDevices from "components/Steps/NumberWirelessDevices";
+import AreaSize from "components/Steps/AreaSize";
 
-class WirelessDeviceNumberService extends BaseStepService {
-    component = NumberWirelessDevices;
+class AreaSizeService extends BaseStepService {
+    component = AreaSize;
 }
 
-const wirelessDeviceNumberService = new WirelessDeviceNumberService();
-export default wirelessDeviceNumberService;
+const areaSizeService = new AreaSizeService();
+export default areaSizeService;

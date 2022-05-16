@@ -1,1 +1,1 @@
-export {default} from './NumberWirelessDevices';
+export {default} from './AreaSize';

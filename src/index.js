@@ -2,12 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { QuizContainer } from 'containers';
-import './assets/styles/base.scss';
+import App from './App.js'
 
 ReactDOM.render(
     <React.StrictMode>
-        <QuizContainer />
+        <App />
     </React.StrictMode>,
     document.getElementById('root')
 );
