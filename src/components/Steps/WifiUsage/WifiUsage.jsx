@@ -10,7 +10,7 @@ const UsageButton = withStyles(
     Button,
     cn(
         styles.category_button,
-        'w-72 text-white flex flex-column items-center rounded-sm py-4 px-2 shadow-md'
+        'w-72 text-white flex flex-col items-center rounded-sm py-4 px-2 shadow-md'
     )
 );
 

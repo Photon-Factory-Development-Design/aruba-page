@@ -26,7 +26,7 @@ const ProductCard = ({
                 }>
                 Switch:
             </div>
-            <div className={'p-4'}>
+            <div className={'p-8'}>
                 <div className="adt-product-title" title={productTitle}>
                     <a className="adt-product-title-placeholder a-size-base a-link-normal a-color-base">
                         <br />

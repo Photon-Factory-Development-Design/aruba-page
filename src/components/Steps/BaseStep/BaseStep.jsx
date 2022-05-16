@@ -6,7 +6,7 @@ import withStyles from '../../../HOC/withStyles';
 const BackButton = withStyles(
     Button,
     cn(
-        'w-24 flex flex-column items-center rounded-3xl py-2 shadow-md bg-white font-bold text-amber-600'
+        'w-24 rounded-3xl py-2 shadow-md bg-white font-bold text-amber-600 block m-2'
     )
 );
 

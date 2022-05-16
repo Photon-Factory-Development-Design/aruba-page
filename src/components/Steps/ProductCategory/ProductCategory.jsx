@@ -10,7 +10,7 @@ const CategoryButton = withStyles(
     Button,
     cn(
         styles.category_button,
-        'w-72 text-white flex flex-column items-center rounded-sm py-2 shadow-md'
+        'w-72 text-white flex flex-col items-center rounded-sm py-2 shadow-md'
     )
 );
 
@@ -27,7 +27,7 @@ const ProductCategory = ({ onUpdateQuestion, onGoBack }) => {
         <BaseStep title={title} subtitle={subTitle} onGoBack={onGoBack}>
             <div
                 className={
-                    'grid-cols-1 sm:grid-cols-2 gap-4 grid max-w-5xl m-auto'
+                    'grid-cols-1 md:grid-cols-2 gap-4 grid max-w-5xl m-auto'
                 }>
                 <CategoryButton
                     icon={'icons-white_foodbev.png'}

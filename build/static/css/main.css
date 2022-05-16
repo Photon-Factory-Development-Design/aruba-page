@@ -464,11 +464,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .relative {
   position: relative;
 }
+.top-0 {
+  top: 0px;
+}
 .z-0 {
   z-index: 0;
 }
 .m-auto {
   margin: auto;
+}
+.m-2 {
+  margin: 0.5rem;
+}
+.block {
+  display: block;
 }
 .flex {
   display: flex;
@@ -507,6 +516,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .flex-row {
   flex-direction: row;
+}
+.flex-col {
+  flex-direction: column;
 }
 .items-center {
   align-items: center;
@@ -550,8 +562,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-0 {
   padding: 0px;
 }
-.p-4 {
-  padding: 1rem;
+.p-8 {
+  padding: 2rem;
 }
 .p-5 {
   padding: 1.25rem;
@@ -662,6 +674,13 @@ code {
   }
 }
 
+@media (min-width: 768px) {
+
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (min-width: 1024px) {
 
   .lg\:grid-cols-3 {
@@ -692,4 +711,4 @@ code {
   height: 60px;
 }
 
-/*# sourceMappingURL=main.5fd114c0.css.map*/
+/*# sourceMappingURL=main.d2e068f7.css.map*/

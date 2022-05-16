@@ -16,14 +16,16 @@ function App() {
     console.log('QuizComponent', QuizComponent, quizProps);
 
     return (
-        <div className="relative">
-            <Image
-                className={'absolute h-full w-full z-0 object-cover'}
-                src={'background.png'}
-                alt={'Background'}
-            />
+        <div className="relative container flex flex-col">
+            <div></div>
             <div className={'z-1 relative'}>
                 <QuizComponent {...quizProps} />
+                <Image
+                    className={'absolute h-full w-full z-0 object-cover top-0'}
+                    style={{ zIndex: -1 }}
+                    src={'background.png'}
+                    alt={'Background'}
+                />
             </div>
         </div>
     );
