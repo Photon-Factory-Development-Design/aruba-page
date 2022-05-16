@@ -23,6 +23,7 @@ code {
 .adt-product-card {
   width: 400px;
   max-width: 100%;
+  height: 100%;
 }
 
 .container {

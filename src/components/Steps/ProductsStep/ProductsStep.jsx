@@ -17,7 +17,7 @@ const ProductsStep = (props) => {
             onGoBack={onGoBack}>
             <div
                 className={
-                    'container grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 grid max-w-fit m-auto'
+                    'container grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 grid max-w-fit m-auto place-items-center'
                 }>
                 {(recommends || []).map((product) => (
                     <ProductCard
