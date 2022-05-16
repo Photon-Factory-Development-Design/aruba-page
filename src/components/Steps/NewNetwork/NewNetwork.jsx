@@ -10,7 +10,7 @@ const Coverage = ({ onUpdateQuestion, onGoBack }) => {
         <BaseStep title={title} subtitle={''} onGoBack={onGoBack}>
             <div
                 className={
-                    'grid-cols-1 sm:grid-cols-3 gap-4 grid max-w-5xl m-auto'
+                    'grid-cols-1 sm:grid-cols-2 gap-4 grid max-w-5xl m-auto'
                 }>
                 <OutlineButton
                     className={'px-5'}
