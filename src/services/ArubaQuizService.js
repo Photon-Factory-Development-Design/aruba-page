@@ -54,9 +54,16 @@ class ArubaQuizService {
         return {
             ...props,
             onUpdateQuestion: this.onUpdateQuestion,
-            onGoBack: this.onGoBack
+            onGoBack: this.onGoBack,
+            currentStep: this.currentStep,
+            onStartOver: this.onStartOver
         };
     }
+
+    onStartOver = () => {
+        this.currentStep = 0;
+        this.update();
+    };
 
     onUpdateQuestion = (answer) => {
         if (!this.question) {

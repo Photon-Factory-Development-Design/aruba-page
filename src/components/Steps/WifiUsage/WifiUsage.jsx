@@ -14,11 +14,16 @@ const UsageButton = withStyles(
     )
 );
 
-const WifiUsage = ({ onUpdateQuestion, onGoBack }) => {
+const WifiUsage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
     const title = 'How do you describe your wi-fi usage?';
 
     return (
-        <BaseStep title={title} subtitle={''} onGoBack={onGoBack}>
+        <BaseStep
+            title={title}
+            subtitle={''}
+            onGoBack={onGoBack}
+            currentStep={currentStep}
+            {...props}>
             <div
                 className={
                     'grid-cols-1 lg:grid-cols-3 gap-4 grid max-w-screen-lg m-auto'

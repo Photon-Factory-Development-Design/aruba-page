@@ -3,7 +3,12 @@ import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
 import { CONNECTED_DEVICE_TYPES } from '../../../common/constant/questions';
 
-const NumberWirelessDevices = ({ onUpdateQuestion, onGoBack }) => {
+const NumberWirelessDevices = ({
+    onUpdateQuestion,
+    onGoBack,
+    currentStep,
+    ...props
+}) => {
     const title = 'Number of wireless devices';
     const subTitle = (
         <>
@@ -14,7 +19,12 @@ const NumberWirelessDevices = ({ onUpdateQuestion, onGoBack }) => {
     );
 
     return (
-        <BaseStep title={title} subtitle={subTitle} onGoBack={onGoBack}>
+        <BaseStep
+            title={title}
+            subtitle={subTitle}
+            onGoBack={onGoBack}
+            currentStep={currentStep}
+            {...props}>
             <div
                 className={
                     'grid-cols-1 sm:grid-cols-3 gap-4 grid max-w-5xl m-auto'

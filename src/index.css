@@ -26,6 +26,10 @@ code {
   height: 100%;
 }
 
+.adt-product-card.detail {
+    width: unset;
+}
+
 .container {
   max-width: 1500px;
 }

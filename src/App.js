@@ -13,7 +13,6 @@ function App() {
 
     const QuizComponent = arubaService.getQuizComponent(),
         quizProps = arubaService.getQuizProps();
-    console.log('QuizComponent', QuizComponent, quizProps);
 
     return (
         <div className="relative container flex flex-col mx-auto">

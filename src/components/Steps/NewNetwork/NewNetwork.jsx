@@ -3,11 +3,16 @@ import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
 import { OUTDOOR_COVERAGE } from '../../../common/constant/questions';
 
-const Coverage = ({ onUpdateQuestion, onGoBack }) => {
+const Coverage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
     const title = 'Looking to deploy a new network for your site?';
 
     return (
-        <BaseStep title={title} subtitle={''} onGoBack={onGoBack}>
+        <BaseStep
+            title={title}
+            subtitle={''}
+            onGoBack={onGoBack}
+            currentStep={currentStep}
+            {...props}>
             <div
                 className={
                     'grid-cols-1 sm:grid-cols-2 gap-4 grid max-w-5xl m-auto'

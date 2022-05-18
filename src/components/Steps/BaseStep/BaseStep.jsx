@@ -10,15 +10,32 @@ const BackButton = withStyles(
     )
 );
 
-const BaseStep = ({ title, subtitle, children, onGoBack }) => {
+const BaseStep = ({
+    title,
+    subtitle,
+    children,
+    onGoBack,
+    onStartOver,
+    currentStep
+}) => {
     return (
         <div className={'p-5 relative'}>
-            <BackButton onClick={onGoBack}>Back</BackButton>
+            {currentStep > 0 && (
+                <React.Fragment>
+                    <BackButton onClick={onGoBack}>Back</BackButton>
+                    <BackButton onClick={onStartOver}>Start Over</BackButton>
+                </React.Fragment>
+            )}
             <div className={'text-center text-white'}>
                 <h2 className={'text-3xl font-bold'}>{title}</h2>
-                <p className={'py-4'}>{subtitle}</p>
+                <p className={'py-4 text-xl'}>{subtitle}</p>
             </div>
-            <div className={'flex flex-row pb-16'}>{children}</div>
+            <div
+                className={cn('flex flex-row pb-16', {
+                    'pb-2': currentStep === 0
+                })}>
+                {children}
+            </div>
         </div>
     );
 };

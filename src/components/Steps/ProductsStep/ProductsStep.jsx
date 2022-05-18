@@ -14,26 +14,29 @@ const ProductsStep = (props) => {
                 "Based on your selections, here's what we recommend for you."
             }
             subtitle={'Select one switch and one access point:'}
-            onGoBack={onGoBack}>
+            onGoBack={onGoBack}
+            {...props}>
             <div
                 className={
-                    'container grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 grid max-w-fit m-auto place-items-center'
+                    'container flex flex-wrap justify-center max-w-fit m-auto'
                 }>
                 {(recommends || []).map((product) => (
-                    <ProductCard
-                        type={'Recommended'}
-                        key={product.url}
-                        url={product.url}
-                        {...product.data}
-                    />
+                    <div className="m-2" key={product.url}>
+                        <ProductCard
+                            type={'Access Point'}
+                            url={product.url}
+                            {...product.data}
+                        />
+                    </div>
                 ))}
                 {(switches || []).map((product) => (
-                    <ProductCard
-                        type={'Switch'}
-                        key={product.url}
-                        url={product.url}
-                        {...product.data}
-                    />
+                    <div className="m-2" key={product.url}>
+                        <ProductCard
+                            type={'Switch'}
+                            url={product.url}
+                            {...product.data}
+                        />
+                    </div>
                 ))}
             </div>
         </BaseStep>

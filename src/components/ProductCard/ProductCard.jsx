@@ -1,15 +1,20 @@
 import React from 'react';
 import Link from 'components/Link';
+import cn from 'classnames';
 import Price from 'components/Price';
+import { Modal, Button } from 'flowbite-react';
 
-const ProductCard = ({
+export const ProductContent = ({
+    type,
     url,
     ASIN: { value: asin } = { value: null },
     mainImage: { value: mainImage } = { value: null },
     productTitle: { value: productTitle } = { value: null },
     ratings: { value: ratings } = { value: {} },
     priceDetail: { value: priceDetail },
-    productAbout: { value: productFeatures }
+    productAbout: { value: productFeatures },
+    onQuickLook,
+    isDetailView = false
 }) => {
     const {
         priceblock_ourprice: priceBlockOutPrice,
@@ -19,13 +24,20 @@ const ProductCard = ({
     const { rateStar, acrCustomerReviewText } = ratings || {};
 
     return (
-        <div className="adt-product-card shadow-md p-0 overflow-hidden">
-            <div
-                className={
-                    'py-2 bg-purple-900 text-white text-center font-bold text-lg'
-                }>
-                Switch:
-            </div>
+        <div
+            className={cn('adt-product-card shadow-md p-0 overflow-hidden', {
+                detail: isDetailView
+            })}>
+            {!isDetailView && (
+                <div
+                    className={cn(
+                        'py-2 text-white text-center font-bold text-lg',
+                        { 'bg-purple-900': type === 'Switch' },
+                        { 'bg-amber-600': type !== 'Switch' }
+                    )}>
+                    {type}:
+                </div>
+            )}
             <div className={'p-8'}>
                 <div className="adt-product-title" title={productTitle}>
                     <a className="adt-product-title-placeholder a-size-base a-link-normal a-color-base">
@@ -56,18 +68,20 @@ const ProductCard = ({
                             }}></div>
                     </div>
                 </a>
-                <div className="adt-product-features">
-                    <h3>Product features</h3>
-                    <ul className="adt-feature-bullets a-size-base a-color-base">
-                        {(productFeatures || [])
-                            .filter((feature) => feature.length > 0)
-                            .map((feature, index) => (
-                                <li key={`product-feature-${index}`}>
-                                    {feature}
-                                </li>
-                            ))}
-                    </ul>
-                </div>
+                {isDetailView && (
+                    <div className="adt-product-features">
+                        <h3>Product features</h3>
+                        <ul className="adt-feature-bullets a-size-base a-color-base">
+                            {(productFeatures || [])
+                                .filter((feature) => feature.length > 0)
+                                .map((feature, index) => (
+                                    <li key={`product-feature-${index}`}>
+                                        {feature}
+                                    </li>
+                                ))}
+                        </ul>
+                    </div>
+                )}
                 {rateStar && (
                     <div className="adt-product-rating pt-2">
                         <span className="aui-average-customer-reviews">
@@ -110,11 +124,46 @@ const ProductCard = ({
                         </Link>
                     </div>
                 </div>
-                <div className="adt-quick-look a-size-base">
-                    <div className="adt-quick-look-icon a-size-base"></div>
-                    Quick Look
-                </div>
+                {!isDetailView && (
+                    <button
+                        type="button"
+                        className="adt-quick-look a-size-base"
+                        data-modal-toggle={`defaultModal-${asin}`}
+                        onClick={onQuickLook}>
+                        <div className="adt-quick-look-icon a-size-base"></div>
+                        Quick Look
+                    </button>
+                )}
             </div>
+        </div>
+    );
+};
+
+const ProductDetailModal = ({ show, onClose, ...props }) => {
+    return (
+        <Modal show={show} onClose={onClose}>
+            <Modal.Header>{props.type}</Modal.Header>
+            <Modal.Body className="space-y-6">
+                <ProductContent {...props} isDetailView={true} />
+            </Modal.Body>
+        </Modal>
+    );
+};
+
+const ProductCard = (props) => {
+    const [showPreviewModal, setShowPreviewModal] = React.useState(false);
+
+    return (
+        <div>
+            <ProductContent
+                {...props}
+                isDetailView={false}
+                onQuickLook={() => setShowPreviewModal(true)}></ProductContent>
+            <ProductDetailModal
+                {...props}
+                show={showPreviewModal}
+                onClose={() => setShowPreviewModal(false)}
+            />
         </div>
     );
 };

@@ -14,7 +14,12 @@ const CategoryButton = withStyles(
     )
 );
 
-const ProductCategory = ({ onUpdateQuestion, onGoBack }) => {
+const ProductCategory = ({
+    onUpdateQuestion,
+    onGoBack,
+    currentStep,
+    ...props
+}) => {
     const title = (
         <>
             Tell us about your space and network needs. <br /> We'll show you
@@ -24,7 +29,12 @@ const ProductCategory = ({ onUpdateQuestion, onGoBack }) => {
     const subTitle = 'Select the industry that best describes your business:';
 
     return (
-        <BaseStep title={title} subtitle={subTitle} onGoBack={onGoBack}>
+        <BaseStep
+            title={title}
+            subtitle={subTitle}
+            onGoBack={onGoBack}
+            currentStep={currentStep}
+            {...props}>
             <div
                 className={
                     'grid-cols-1 md:grid-cols-2 gap-4 grid max-w-5xl m-auto'

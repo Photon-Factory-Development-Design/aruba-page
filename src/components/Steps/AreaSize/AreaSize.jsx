@@ -3,11 +3,16 @@ import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
 import { SIZE_AREA_COVERAGE } from '../../../common/constant/questions';
 
-const AreaSize = ({ onUpdateQuestion, onGoBack }) => {
+const AreaSize = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
     const title = 'Select size of area you need to cover';
 
     return (
-        <BaseStep title={title} subtitle={''} onGoBack={onGoBack}>
+        <BaseStep
+            title={title}
+            subtitle={''}
+            onGoBack={onGoBack}
+            currentStep={currentStep}
+            {...props}>
             <div
                 className={
                     'grid-cols-1 sm:grid-cols-3 gap-4 grid max-w-5xl m-auto'
