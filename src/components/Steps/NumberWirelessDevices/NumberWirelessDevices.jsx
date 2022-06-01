@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
-import { CONNECTED_DEVICE_TYPES } from '../../../common/constant/questions';
+import { CONNECTED_DEVICE_TYPES } from '../../../common/constant';
 
 const NumberWirelessDevices = ({
     onUpdateQuestion,

@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseStep from '../BaseStep';
 import ProductCard from 'components/ProductCard';
-import { PRODUCT_TYPES } from '../../../common/constant/questions';
+import { PRODUCT_TYPES } from '../../../common/constant';
 
 const ProductsStep = (props) => {
     const recommends = props[PRODUCT_TYPES.RECOMMENDED];

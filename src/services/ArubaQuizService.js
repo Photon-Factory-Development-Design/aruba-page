@@ -5,6 +5,9 @@ import areaSizeService from './substeps/AreaSize.service';
 import networkUsageService from './substeps/NetworkUsage.service';
 import coverageService from './substeps/Coverage.service';
 import productStepService from './substeps/ProductStep.service';
+import questionService from 'common/constant/questions';
+import supportHighPerformanceService from 'services/substeps/SupportHighPerformance.service';
+import supportWifi6DevicesService from 'services/substeps/SupportWifi6Devices.service';
 
 const useForceUpdater = () => {
     const [count, setCount] = React.useState(0);
@@ -24,16 +27,19 @@ class ArubaQuizService {
     hooks = {
         useForceUpdater
     };
-    steps = [
-        categoryStep,
-        connectedDevicesService,
-        areaSizeService,
-        networkUsageService,
-        coverageService,
-        productStepService
-    ];
+    steps = {
+        industry: categoryStep,
+        device: connectedDevicesService,
+        area: areaSizeService,
+        network: networkUsageService,
+        outdoor: coverageService,
+        power: supportHighPerformanceService,
+        wifi: supportWifi6DevicesService,
+        product: productStepService
+    };
     currentStep = 1;
     question = null;
+    questionService = questionService;
 
     update() {
         if (this.updater && typeof this.updater === 'function') {
@@ -41,27 +47,36 @@ class ArubaQuizService {
         }
     }
 
+    getCurrentStep = () => {
+        const questionType = this.questionService.getQuestionType(
+            this.question || []
+        );
+        return this.steps[questionType];
+    };
+
     registerUpdater(updater) {
         this.updater = updater;
     }
 
     getQuizComponent() {
-        return this.steps[this.currentStep].getComponent();
+        const currentStep = this.getCurrentStep();
+        return currentStep.getComponent();
     }
 
     getQuizProps() {
-        const props = this.steps[this.currentStep].getProps(this.question);
+        const currentStep = this.getCurrentStep();
+        const props = currentStep.getProps(this.question);
         return {
             ...props,
             onUpdateQuestion: this.onUpdateQuestion,
             onGoBack: this.onGoBack,
-            currentStep: this.currentStep,
+            isFirstStep: (this.question || []).length === 0,
             onStartOver: this.onStartOver
         };
     }
 
     onStartOver = () => {
-        this.currentStep = 0;
+        this.question = [];
         this.update();
     };
 

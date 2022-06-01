@@ -4,7 +4,7 @@ import Button from 'components/Button';
 import withStyles from 'HOC/withStyles';
 import styles from './WifiUsage.module.css';
 import BaseStep from '../BaseStep';
-import { NETWORK_USAGE } from '../../../common/constant/questions';
+import { NETWORK_USAGE } from '../../../common/constant';
 
 const UsageButton = withStyles(
     Button,

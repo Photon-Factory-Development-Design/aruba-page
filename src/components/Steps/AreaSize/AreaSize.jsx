@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
-import { SIZE_AREA_COVERAGE } from '../../../common/constant/questions';
+import { SIZE_AREA_COVERAGE } from '../../../common/constant';
 
 const AreaSize = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
     const title = 'Select size of area you need to cover';

@@ -16,11 +16,11 @@ const BaseStep = ({
     children,
     onGoBack,
     onStartOver,
-    currentStep
+    isFirstStep
 }) => {
     return (
         <div className={'p-5 relative'}>
-            {currentStep > 0 && (
+            {!isFirstStep && (
                 <React.Fragment>
                     <BackButton onClick={onGoBack}>Back</BackButton>
                     <BackButton onClick={onStartOver}>Start Over</BackButton>
@@ -32,7 +32,7 @@ const BaseStep = ({
             </div>
             <div
                 className={cn('flex flex-row pb-16', {
-                    'pb-2': currentStep === 0
+                    'pb-2': isFirstStep
                 })}>
                 {children}
             </div>

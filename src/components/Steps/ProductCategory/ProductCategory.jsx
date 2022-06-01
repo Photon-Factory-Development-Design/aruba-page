@@ -4,7 +4,7 @@ import Button from 'components/Button';
 import withStyles from 'HOC/withStyles';
 import styles from './ProductCategory.module.css';
 import BaseStep from '../BaseStep';
-import { IndustryTypes } from '../../../common/constant/questions';
+import { IndustryTypes } from '../../../common/constant';
 
 const CategoryButton = withStyles(
     Button,

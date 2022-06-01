@@ -1,10 +1,10 @@
 import React from 'react';
 import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
-import { OUTDOOR_COVERAGE } from '../../../common/constant';
+import { SUPPORT_WIFI_6_DEVICES } from 'common/constant';
 
-const Coverage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
-    const title = 'Looking to deploy a new network for your site?';
+const Wifi6Support = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
+    const title = 'Support wifi 6 devices?';
 
     return (
         <BaseStep
@@ -19,12 +19,14 @@ const Coverage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
                 }>
                 <OutlineButton
                     className={'px-5'}
-                    onClick={() => onUpdateQuestion(OUTDOOR_COVERAGE.YES)}>
+                    onClick={() =>
+                        onUpdateQuestion(SUPPORT_WIFI_6_DEVICES.YES)
+                    }>
                     Yes
                 </OutlineButton>
                 <OutlineButton
                     className={'px-5'}
-                    onClick={() => onUpdateQuestion(OUTDOOR_COVERAGE.NO)}>
+                    onClick={() => onUpdateQuestion(SUPPORT_WIFI_6_DEVICES.NO)}>
                     No
                 </OutlineButton>
             </div>
@@ -32,4 +34,4 @@ const Coverage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
     );
 };
 
-export default Coverage;
+export default Wifi6Support;

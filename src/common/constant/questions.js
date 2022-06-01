@@ -1,66 +1,39 @@
 import products from 'common/data/products';
-
-export const IndustryTypes = {
-    HOME_OFFICE: 'home_office',
-    RETAIL_CAFE_RESTAURANT: 'retail_cafe_restaruant',
-    HOSPITALITY: 'hospitality',
-    EDUCATION: 'education',
-    PROFESSIONAL_OFFICE: 'professional_office',
-    OTHER: 'other'
-};
-
-export const CONNECTED_DEVICE_TYPES = {
-    ONE_TO_FIFTY: 'one2fifty',
-    FIFTY_TO_HUNDRED: 'fifty2hundred',
-    HUNDRED_PLUS: 'hundred_plus'
-};
-
-export const SIZE_AREA_COVERAGE = {
-    SMALL: 'small',
-    MEDIUM: 'medium',
-    LARGE: 'large'
-};
-
-export const NETWORK_USAGE = {
-    LIGHT: 'light',
-    MODERATE: 'moderate',
-    HIGH: 'high'
-};
-
-export const OUTDOOR_COVERAGE = {
-    YES: 'yes',
-    NO: 'no'
-};
-
-export const PRODUCT_TYPES = {
-    RECOMMENDED: 'recommended',
-    SWITCH: 'switch'
-};
+import { IndustryTypes, PRODUCT_TYPES } from 'common/constant';
+import { home } from 'common/constant/questions/home';
+import { education } from 'common/constant/questions/education';
+import { hospitality } from 'common/constant/questions/hospitality';
+import { professionalOffice } from 'common/constant/questions/profession-office';
+import { other } from 'common/constant/questions/other';
+import { retail } from 'common/constant/questions/retail';
 
 class Question {
     productsMap = {
-        [IndustryTypes.HOME_OFFICE]: {
-            [CONNECTED_DEVICE_TYPES.ONE_TO_FIFTY]: {
-                [SIZE_AREA_COVERAGE.SMALL]: {
-                    [NETWORK_USAGE.LIGHT]: {
-                        [OUTDOOR_COVERAGE.YES]: {
-                            [PRODUCT_TYPES.RECOMMENDED]: [
-                                'B07V7T29SS',
-                                'B07W7CBKZG',
-                                'B07VMT8WK5'
-                            ],
-                            [PRODUCT_TYPES.SWITCH]: ['B08BFBR5X3', 'B09NLCNGC7']
-                        }
-                    }
-                }
-            }
-        }
+        [IndustryTypes.HOME_OFFICE]: home,
+        [IndustryTypes.EDUCATION]: education,
+        [IndustryTypes.HOSPITALITY]: hospitality,
+        [IndustryTypes.PROFESSIONAL_OFFICE]: professionalOffice,
+        [IndustryTypes.RETAIL_CAFE_RESTAURANT]: retail,
+        [IndustryTypes.OTHER]: other
     };
 
     getProductsForAsins = (asins) => {
         return products.filter((product) =>
             (asins || []).includes(product.data.ASIN.value)
         );
+    };
+
+    getQuestionType = (answer) => {
+        let productsMap = this.productsMap;
+
+        answer.forEach((item) => {
+            console.log('forEach', productsMap, item);
+            if (productsMap) {
+                productsMap = productsMap[item];
+            }
+        });
+
+        return Object.keys(productsMap)[0].split('_')[0];
     };
 
     /**

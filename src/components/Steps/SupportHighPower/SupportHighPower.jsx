@@ -1,10 +1,10 @@
 import React from 'react';
 import BaseStep from '../BaseStep';
 import { OutlineButton } from '../../Button';
-import { OUTDOOR_COVERAGE } from '../../../common/constant';
+import { SUPPORT_HIGH_POWERED } from 'common/constant';
 
 const Coverage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
-    const title = 'Looking to deploy a new network for your site?';
+    const title = 'Support high power?';
 
     return (
         <BaseStep
@@ -19,12 +19,12 @@ const Coverage = ({ onUpdateQuestion, onGoBack, currentStep, ...props }) => {
                 }>
                 <OutlineButton
                     className={'px-5'}
-                    onClick={() => onUpdateQuestion(OUTDOOR_COVERAGE.YES)}>
+                    onClick={() => onUpdateQuestion(SUPPORT_HIGH_POWERED.YES)}>
                     Yes
                 </OutlineButton>
                 <OutlineButton
                     className={'px-5'}
-                    onClick={() => onUpdateQuestion(OUTDOOR_COVERAGE.NO)}>
+                    onClick={() => onUpdateQuestion(SUPPORT_HIGH_POWERED.NO)}>
                     No
                 </OutlineButton>
             </div>
