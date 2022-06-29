@@ -93,6 +93,7 @@ class ArubaQuizService {
 
     onGoBack = () => {
         this.currentStep = Math.max(this.currentStep - 1, 0);
+        this.question = (this.question || []).slice(0, this.currentStep);
         this.update();
     };
 
